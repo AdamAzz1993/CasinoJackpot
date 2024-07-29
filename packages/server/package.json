@@ -1,0 +1,30 @@
+{
+  "name": "@casinojackpot/server",
+  "version": "0.0.0",
+  "description": "server side of casino jackpot",
+  "author": "AdamAzzam <AdamAzz1993@gmail.com>",
+  "homepage": "https://github.com/AdamAzz1993/CasinoJackpot#readme",
+  "license": "ISC",
+  "main": "src/server.js",
+  "directories": {
+    "lib": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdamAzz1993/CasinoJackpot.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/server.test.js",
+    "start": "node ./src/server.js"
+  },
+  "bugs": {
+    "url": "https://github.com/AdamAzz1993/CasinoJackpot/issues"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

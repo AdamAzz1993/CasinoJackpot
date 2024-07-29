@@ -1,0 +1,23 @@
+{
+  "name": "casinojackpot",
+  "version": "1.0.0",
+  "description": "a simple slot machine game with a twist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "npm run start --workspace=@casinojackpot/server"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lerna": "^8.1.7"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
