@@ -4,7 +4,7 @@
   "description": "a simple slot machine game with a twist",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start-server": "npm run start --workspace=@casinojackpot/server"
   },
   "private": true,
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "jest": "^29.7.0",
     "lerna": "^8.1.7"
   },
   "dependencies": {
