@@ -58,13 +58,13 @@ router.get('/roll', (request, response) => {
 });
 
 /**
- * Route to perform a withdraw and end the game session.
+ * Route to perform a cashOut and end the game session.
  * 
  * Retrieves the session ID from the request session object.
  * @param {Object} request - The request object.
  * @returns {Response} response - the response status
  */
-router.get('/withdraw', (request, response) => {
+router.get('/cashOut', (request, response) => {
     const { session } = request ?? {};
     const { credit } = session ?? {};
     if (session && credit > 0) {

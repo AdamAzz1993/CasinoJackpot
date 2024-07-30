@@ -39,7 +39,7 @@ describe('rollJackpot', () => {
         Math.random.mockRestore();
     });
 
-    test('should call correct model constructor', () => {
+    test('should call the correct model constructor', () => {
         jest.spyOn(global.Math, 'random')
             .mockReturnValueOnce(0.1) // First roll
             .mockReturnValueOnce(0.1) // Cheat chance not triggered

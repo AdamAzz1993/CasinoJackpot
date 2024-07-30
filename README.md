@@ -6,7 +6,7 @@ https://lucid.app/lucidchart/858105b8-302a-4bad-a2e4-cc0200dca7da/edit?viewport_
 
 Setup:
 1. Created empty monorepo project that is managed by lerna. used lerna to simplify the management of versions concept for multiple package within same repository.
-2. The main packages in this repository are @casinojackpot/client and @casinojackpot/server.
+2. The main packages in this repository are @casinojackpot/web and @casinojackpot/server.
 
 Backend:
 1. added server package in express over nodejs.
@@ -15,6 +15,6 @@ Backend:
 4. implemented jest to be the main test provider.
 5. covered the service's functionality by unit tests.
 6. decided to use express-session for saving the user's session data.
-7. I wonder if database is required for next sessions.
-8. the logic on losing is not defined, I thought it will be reasonable to close the session (deposit is not required)
+7. endpoints: "/" get initial state, "/roll" perform single roll, "/cashOut" withdraw the credit.
+ 
 
