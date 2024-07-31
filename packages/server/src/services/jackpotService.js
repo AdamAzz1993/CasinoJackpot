@@ -1,11 +1,13 @@
 "use strict";
 const isNil = require('lodash/isNil');
+const { v4: uuidv4 } = require('uuid');
 const { 
     POSSIBLE_SYMBOLS,
     CREDIT_RANGE,
     CHEAT_CHANCE,
     WIN_AMOUNT,
     INITIAL_CREDIT } = require('../constants');
+const { writeToFile } = require('../utils');
 const { JackpotRoll } = require('../models');
 
 const rollJackpot = (credits) => {
@@ -21,9 +23,7 @@ const rollJackpot = (credits) => {
         jackpotRoll.blocks = blocks;
     }
 
-    if (allSame(blocks)) {
-        pointsEarned = WIN_AMOUNT[blocks[0]] ?? 0;
-    }
+    pointsEarned = allSame(blocks) ? WIN_AMOUNT[blocks[0]] : -1;
 
     const jackpotRoll = new JackpotRoll(blocks, pointsEarned);
 
@@ -60,6 +60,11 @@ const initialState = (session) => {
     return !isNil(session?.credit) ? session.credit : INITIAL_CREDIT;
 }
 
+const cashOut = (session) => {
+    const { credit } = session;
+    writeToFile(`${uuidv4()}: ${credit}\n`);
+    session.destroy();
+}
 module.exports = {
     rollJackpot,
     getCheatChance,
@@ -67,4 +72,5 @@ module.exports = {
     allSame,
     getRandomSymbol,
     initialState,
+    cashOut,
 }

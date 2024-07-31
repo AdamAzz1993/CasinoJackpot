@@ -3,8 +3,9 @@ const express = require('express');
 const session = require('express-session');
 const { jackpotController } = require('./controllers');
 const { v4: uuidv4 } = require('uuid');
+const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use(session({
   genid: () => uuidv4(),
@@ -12,7 +13,11 @@ app.use(session({
   resave: true,
   saveUninitialized: true,
   cookie: { secure: false },
-  credit: 10,
+}));
+
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true
 }));
 
 app.use(express.json());

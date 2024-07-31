@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start-server": "npm run start --workspace=@casinojackpot/server"
+    "start": "npm run start-server & npm run start-client",
+    "start-server": "npm run start --workspace=@casinojackpot/server",
+    "start-client": "npm run start --workspace=@casinojackpot/client"
   },
   "private": true,
   "workspaces": [

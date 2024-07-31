@@ -7,6 +7,7 @@ const {
     allSame,
     getRandomSymbol,
     initialState,
+    cashOut,
  } = require('./jackpotService.js');
 
 module.exports = {
@@ -16,4 +17,5 @@ module.exports = {
     allSame,
     getRandomSymbol,
     initialState,
+    cashOut,
 }

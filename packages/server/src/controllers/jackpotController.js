@@ -1,7 +1,7 @@
 "use strict";
 const express = require('express');
 const isNil = require('lodash/isNil')
-const { rollJackpot, initialState } = require('../services');
+const { rollJackpot, initialState, cashOut } = require('../services');
 
 const router = express.Router();
 
@@ -40,9 +40,8 @@ router.get('/', (request, response) => {
  *  HTTP/1.1 200 OK
  * @throws {Error} Throws an error if there's an issue during the roll or session handling.
  */
-router.get('/roll', (request, response) => {
+router.post('/roll', (request, response) => {
     let { credit } = request.session ?? {};
-
 
     if (!isNil(credit) && credit <= 0) {
         const { sessionID } = request.session;
@@ -52,7 +51,7 @@ router.get('/roll', (request, response) => {
 
     const result = rollJackpot(credit);
     if (request.session) {
-        request.session.credit = --credit + (result.pointsEarned ?? 0);
+        request.session.credit += result.pointsEarned ?? 0;
     }
     response.status(200).send(result);
 });
@@ -64,12 +63,11 @@ router.get('/roll', (request, response) => {
  * @param {Object} request - The request object.
  * @returns {Response} response - the response status
  */
-router.get('/cashOut', (request, response) => {
+router.post('/cashOut', (request, response) => {
     const { session } = request ?? {};
     const { credit } = session ?? {};
     if (session && credit > 0) {
-        const { sessionID } = request.session;
-        request.session.destroy(sessionID);
+        cashOut(request.session);
         return response.status(200).send();
     }
     response.status(204);
