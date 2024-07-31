@@ -16,5 +16,16 @@ Backend:
 5. covered the service's functionality by unit tests.
 6. decided to use express-session for saving the user's session data.
 7. endpoints: "/" get initial state, "/roll" perform single roll, "/cashOut" withdraw the credit.
+8. cashOut action will save the user's withdraw amount in history.txt file
  
+Frontend:
+1. started with setting up react application and installing all dependencies
+2. built the structure of the project
+3. used axios for api requests
+4. implemented redux state management to build my store data
+5. improvements in the project dependencies and implemented webpack to manage the rules and dependencies
+6. covered the client with unit tests, components and services
 
+
+# Start
+run: "npm start"

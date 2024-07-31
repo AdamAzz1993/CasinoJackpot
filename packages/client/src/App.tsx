@@ -1,3 +1,4 @@
+import './App.css';
 import { Routes, Route, HashRouter } from "react-router-dom";
 import Dashboard from '@views/dashboard/dashboard';
 import Enterance from '@views/enterance/enterance';
