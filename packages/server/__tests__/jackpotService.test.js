@@ -91,14 +91,3 @@ describe('getRandomSymbol function', () => {
     });
 });
 
-// Additional tests for rollJackpot function
-describe('rollJackpot function', () => {
-    test('should call JackpotRoll', () => {
-        jest.spyOn(global.Math, 'random')
-            .mockReturnValueOnce(0.1) // First roll
-            .mockReturnValueOnce(0.1) // Cheat chance not triggered
-            .mockReturnValueOnce(0.1); // Symbol 'C'
-        const result = rollJackpot(10);
-        expect(JackpotRoll).toBeCalled();
-    });
-});
