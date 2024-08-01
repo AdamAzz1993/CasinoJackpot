@@ -4,8 +4,8 @@ const session = require('express-session');
 const { jackpotController } = require('./controllers');
 const { v4: uuidv4 } = require('uuid');
 const cors = require('cors');
+const { SERVER_PORT, AUTHURIZED_CLIENT_PORT } = require('./constants');
 const app = express();
-const port = 4000;
 
 app.use(session({
   genid: () => uuidv4(),
@@ -16,12 +16,12 @@ app.use(session({
 }));
 
 app.use(cors({
-  origin: 'http://localhost:8080',
+  origin: `http://localhost:${AUTHURIZED_CLIENT_PORT}`,
   credentials: true
 }));
 
 app.use(express.json());
 app.use('/', jackpotController);
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(SERVER_PORT, () => {
+  console.log(`Server is running on http://localhost:${SERVER_PORT}`);
 });

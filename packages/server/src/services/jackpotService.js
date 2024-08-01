@@ -1,4 +1,5 @@
 "use strict";
+
 const isNil = require('lodash/isNil');
 const { v4: uuidv4 } = require('uuid');
 const { 
@@ -6,7 +7,8 @@ const {
     CREDIT_RANGE,
     CHEAT_CHANCE,
     WIN_AMOUNT,
-    INITIAL_CREDIT } = require('../constants');
+    INITIAL_CREDIT,
+    NUMBER_OF_BLOCKS } = require('../constants');
 const { writeToFile } = require('../utils');
 const { JackpotRoll } = require('../models');
 
@@ -50,7 +52,7 @@ const getCheatChance = (credits) => {
 
 const roll = () => {
     const blockResults = [];
-    for (let i = 0; i < 3 ; i++) {
+    for (let i = 0; i < NUMBER_OF_BLOCKS ; i++) {
         blockResults[i] = getRandomSymbol();
     }
     return blockResults;

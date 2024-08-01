@@ -4,7 +4,11 @@ const {
     CREDIT_RANGE,
     CHEAT_CHANCE,
     WIN_AMOUNT,
-    INITIAL_CREDIT } = require('./general.js')
+    INITIAL_CREDIT,
+    NUMBER_OF_BLOCKS,
+    SERVER_PORT,
+    AUTHURIZED_CLIENT_PORT,
+} = require('./general.js')
 
 module.exports = {
     POSSIBLE_SYMBOLS,
@@ -12,4 +16,7 @@ module.exports = {
     CHEAT_CHANCE,
     WIN_AMOUNT,
     INITIAL_CREDIT,
+    NUMBER_OF_BLOCKS,
+    SERVER_PORT,
+    AUTHURIZED_CLIENT_PORT,
 }

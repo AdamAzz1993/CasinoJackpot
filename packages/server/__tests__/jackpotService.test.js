@@ -22,7 +22,8 @@ jest.mock('../src/constants', () => ({
         'L': 20,
         'O': 30,
         'W': 40
-    }
+    },
+    NUMBER_OF_BLOCKS: 3,
 }));
 
 jest.mock('../src/models', () => ({

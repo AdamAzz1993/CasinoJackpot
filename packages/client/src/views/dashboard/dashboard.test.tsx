@@ -21,20 +21,17 @@ jest.mock('react-redux', () => ({
 }));
 
 describe('Dashboard Component', () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.clearAllMocks();
-    jest.runOnlyPendingTimers();
-    jest.useRealTimers();
-  });
-
   test('should call casino service on component mount', () => {
     const { CasinoService } = require('../../services/casinoService');
     render(<Dashboard />);
     expect(CasinoService).toHaveBeenCalledTimes(1);
+  });
+
+  test('rollJackpot is called when roll jackpot button is clicked', () => {
+    const { CasinoService } = require('../../services/casinoService');
+    render(<Dashboard />);
+    fireEvent.click(screen.getByRole('button', { name: /roll jackpot/i }));
+    expect(CasinoService.mock.results[0].value.rollJackpot).toHaveBeenCalled();
   });
 
   test('cashOut is called when cash out button is clicked', () => {

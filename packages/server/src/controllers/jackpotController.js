@@ -30,12 +30,11 @@ router.get('/', (request, response) => {
 });
 
 /**
- * Route to perform a roll in the jackpot game.
  * It decrements the session's credit by 1 and adds any points earned from the roll.
  * If the session's credit is 0 or less, the session is destroyed.
  * 
- * @path {GET} /roll
- * @response {void} - Does not return a body, but may end the session if credit is 0 or less.
+ * @path {POST} /roll
+ * @response {Object} - Returns an object containing points earned and the symbols array.
  * @responseExample {json} Success-Response:
  *  HTTP/1.1 200 OK
  * @throws {Error} Throws an error if there's an issue during the roll or session handling.
@@ -57,9 +56,10 @@ router.post('/roll', (request, response) => {
 });
 
 /**
- * Route to perform a cashOut and end the game session.
  * 
- * Retrieves the session ID from the request session object.
+ * Retrieves the credit from session and write it to the history.txt file for the user.
+ * And then destroy the session.
+ * @path {POST} /cashout
  * @param {Object} request - The request object.
  * @returns {Response} response - the response status
  */

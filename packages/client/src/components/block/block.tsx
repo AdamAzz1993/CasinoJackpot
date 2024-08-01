@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { act, FC, useEffect, useState } from 'react';
 import { BlockWrapper } from './block.styled';
 import { eBlockType } from '@enums/eBlockType';
 
@@ -16,8 +16,10 @@ const Block: FC<BlockProps> = ({ index, value }) => {
     setBlock(eBlockType.Spinner);
 
     const timer = setTimeout(() => {
-      setBlock(value);
-      setIsLoading(false);
+      act(() => {
+        setBlock(value);
+        setIsLoading(false);
+      });
     }, delay);
 
     return () => clearTimeout(timer);

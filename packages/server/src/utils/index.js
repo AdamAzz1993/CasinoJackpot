@@ -1,5 +1,4 @@
 "use strict";
-
 const {     
     writeToFile,
  } = require('./writeToFile.js');
