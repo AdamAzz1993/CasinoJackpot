@@ -6,8 +6,8 @@ import RollerButton from '@components/rollerButton/rollerButton';
 import { useSelector } from 'react-redux';
 import { eBlockType } from '@enums/eBlockType';
 import CashOutButton from '@components/cashOutButton/cashOutButton';
-import Stats from '@components/stats/stats';
 import { DashboardContainer } from './dashboard.styled';
+import Wallet from '@components/wallet/wallet';
 
 interface DashboardProps { }
 
@@ -44,7 +44,7 @@ const Dashboard: FC<DashboardProps> = () => {
          </div>
          <RollerButton rollJackpot={!!isActive && credit > 0  ? rollJackpot : () => { }} />
          <CashOutButton cashOut={!!isActive && credit > 0  ? casinoService.cashOut : () => { }} />
-         <Stats credit={credit} />
+         <Wallet credit={credit} />
       </DashboardContainer>
    );
 };
